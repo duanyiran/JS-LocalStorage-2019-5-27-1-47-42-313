@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<h1></h1>
+		<button onclick="plus();"><strong>加号按钮</strong></button>
+		<button onclick="setZero();">重置</button>
+		<script>
+			if(localStorage.getItem('tempNum')){
+				document.getElementsByTagName('h1')[0].innerHTML = localStorage.getItem('tempNum');
+			}else{
+				document.getElementsByTagName('h1')[0].innerHTML = 0;
+				localStorage.setItem('tempNum', 0);
+			}
+			
+			function plus(){
+				var num = localStorage.getItem('tempNum');
+				document.getElementsByTagName('h1')[0].innerHTML = ++num;
+				localStorage.setItem('tempNum', num);
+			}
+			
+			function setZero(){
+				localStorage.setItem('tempNum', 0);
+				document.getElementsByTagName('h1')[0].innerHTML = 0;
+			}
+		</script>
+	</body>
+</html>
